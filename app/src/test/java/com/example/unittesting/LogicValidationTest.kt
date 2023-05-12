@@ -227,4 +227,94 @@ class LogicValidationTest {
         assertEquals(expectedResult, actualResult)
     }
 
+    @Test
+    fun `12 test case`() {
+        // Given
+        val filePath = "sfsdf/sfrfref/erf/file(1).txt"
+        val expectedResult = "file(2).txt"
+
+        every { myFile.isFileExist(any()) } returns true andThen false
+
+        // When
+        val actualResult = logicValidation.uniquify2(filePath, myFile)
+
+        // Then
+        assertEquals(expectedResult, actualResult)
+    }
+
+    @Test
+    fun `13 test case`() {
+        // Given
+        val filePath = "sfsdf/sfrfref/erf/file(1(2)).txt"
+        val expectedResult = "file(1(2))(1).txt"
+
+        every { myFile.isFileExist(any()) } returns true andThen false
+
+        // When
+        val actualResult = logicValidation.uniquify2(filePath, myFile)
+
+        // Then
+        assertEquals(expectedResult, actualResult)
+    }
+
+    @Test
+    fun `14 test case`() {
+        // Given
+        val filePath = "sfsdf/sfrfref/erf/file(1) (2).txt"
+        val expectedResult = "file(1) (3).txt"
+
+        every { myFile.isFileExist(any()) } returns true andThen false
+
+        // When
+        val actualResult = logicValidation.uniquify2(filePath, myFile)
+
+        // Then
+        assertEquals(expectedResult, actualResult)
+    }
+
+    @Test
+    fun `15 test case`() {
+        // Given
+        val filePath = "sfsdf/sfrfref/erf//file(1).txt.pdf"
+        val expectedResult = "file(2).txt.pdf"
+
+        every { myFile.isFileExist(any()) } returns true andThen false
+
+        // When
+        val actualResult = logicValidation.uniquify2(filePath, myFile)
+
+        // Then
+        assertEquals(expectedResult, actualResult)
+    }
+
+    @Test
+    fun `16 test case`() {
+        // Given
+        val filePath = "sfsdf/sfrfref/erf/file.txt."
+        val expectedResult = "file.txt(1)."
+
+        every { myFile.isFileExist(any()) } returns true andThen false
+
+        // When
+        val actualResult = logicValidation.uniquify2(filePath, myFile)
+
+        // Then
+        assertEquals(expectedResult, actualResult)
+    }
+
+    @Test
+    fun `17 test case`() {
+        // Given
+        val filePath = "sfsdf/sfrfref/erf//file<>.txt"
+        val expectedResult = "file<>(1).txt"
+
+        every { myFile.isFileExist(any()) } returns true andThen false
+
+        // When
+        val actualResult = logicValidation.uniquify2(filePath, myFile)
+
+        // Then
+        assertEquals(expectedResult, actualResult)
+    }
+
 }
