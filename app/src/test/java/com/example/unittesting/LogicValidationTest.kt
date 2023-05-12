@@ -216,7 +216,7 @@ class LogicValidationTest {
     fun `11 test case`() {
         // Given
         val filePath = "sdfdsfsd/fdsfdsf/ddssd/fsdf/abc(1)def.pdf"
-        val expectedResult = "abc(1)def(1).def"
+        val expectedResult = "abc(1)def(1).pdf"
 
         every { myFile.isFileExist(any()) } returns true andThen false
 

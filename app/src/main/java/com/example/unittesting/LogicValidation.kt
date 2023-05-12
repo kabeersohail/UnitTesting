@@ -64,7 +64,7 @@ class LogicValidation {
         val file = File(path)
         val filename = file.nameWithoutExtension.replace(Regex("\\(\\d+\\)$"), "")
         val extension = file.extension
-        val regex = Regex("\\((\\d+)\\)[^()]*\$")
+        val regex = Regex("\\((\\d+)\\)(\\.[^.]+)?\$")
         val matchResult = regex.find(file.nameWithoutExtension)
         val counter = matchResult?.groupValues?.get(1)?.toInt() ?: 0
 
