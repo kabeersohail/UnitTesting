@@ -40,18 +40,19 @@ class LogicValidation {
     }
 
     fun replacePPTXPDF(fileName: String): String {
+        val trimmedFileName = fileName.trim()
 
-        if(!fileName.endsWith(".pptx.pdf", ignoreCase = true)) {
-            return fileName
+        if (!trimmedFileName.endsWith(".pptx.pdf", ignoreCase = true)) {
+            return trimmedFileName
         }
 
-        return if(fileName.toLowerCase().endsWith(".pptx.pdf".toLowerCase())) {
-            fileName.substring(0, fileName.length - ".pptx.pdf".length) + ".pdf"
+        return if (trimmedFileName.toLowerCase().endsWith(".pptx.pdf".toLowerCase())) {
+            trimmedFileName.substring(0, trimmedFileName.length - ".pptx.pdf".length) + ".pdf"
         } else {
-            fileName
+            trimmedFileName
         }
-
     }
+
 
 
 

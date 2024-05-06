@@ -486,7 +486,7 @@ class LogicValidationTest {
     fun `eighth case test for pptxpdf`() {
         // Given
         val input = " abc.pptx.pdf "
-        val expectedOutput = " abc.pdf "
+        val expectedOutput = "abc.pdf"
 
         // When
         val actualResult = logicValidation.replacePPTXPDF(input)
@@ -507,7 +507,4 @@ class LogicValidationTest {
         // Then
         assertEquals(expectedOutput, actualResult)
     }
-
-
-
 }
